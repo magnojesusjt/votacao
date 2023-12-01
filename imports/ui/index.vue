@@ -184,13 +184,15 @@ const getCPF = () => {
     console.log(res);
     if (res?.cpf) {
       if (res.voto) {
-        Swal.fire("Você já votou!");
+        Swal.fire("Voto já cadastrado!");
         return;
       }
       valid.value = true;
       return;
     }
-    Swal.fire("Não encontramos seu CPF na nossa base :(");
+    Swal.fire(
+      "Participante não encontrado, por favor entre em contato com os organizadores do evento :("
+    );
   });
 };
 </script>
@@ -212,7 +214,7 @@ const getCPF = () => {
         </v-col>
         <v-col cols="12">
           <v-btn color="primary" :block="true" @click="getCPF()">
-            Enviar
+            Iniciar votação
           </v-btn>
         </v-col>
       </v-col>
